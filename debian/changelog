@@ -1,0 +1,149 @@
+hping3 (3.a2.ds2-6) unstable; urgency=low
+
+  * debian/patches/140_data_size_udp.diff: Fix incorrect data size 
+    check for UDP (Closes: #546590), thanks to Luca Bigliardi.
+  * debian/patches/150_gnu_kfreebsd.diff: Fix FTBFS for kfreebsd-{i386,amd64}.
+  * debian/patches/160_tcp_mss.diff: Add support to TCP MSS from NetBSD:
+    patch-aa, patch-ai, patch-aj, patch-ak, patch-al, patch-am, patch-an
+    (Closes: #409391).
+
+ -- Guillaume Delacour <gui@iroqwa.org>  Sat, 19 Sep 2009 12:35:34 +0000
+
+hping3 (3.a2.ds2-5) unstable; urgency=low
+
+  * debian/patches/080_ip_id_field.diff: Add description to header.
+  * debian/patches/090_fr_manpage.diff:
+    + use hping2 fr manpage for hping3 (already included in source).
+  * debian/patches/100_hyphen_used_as_minus_sign.diff
+    + Add "\" to "-" in english and fr manpage (as suggested by lintian).
+  * debian/patches/110_dontfrag_offbyone.diff:
+    Don't clear packet size if final size equivalent to MTU
+    (Closes: #537704), thanks to Christian Mock.
+  * debian/patches/120_rtt_icmp_unreachable.diff:
+    Add RTT handling for ICMP destination unreachable packets
+    (Closes: #248273), thanks to Baruch Even.
+  * debian/patches
+  * debian/watch:
+    + Add empty but documented file (to explain why).
+  * Bump to debhelper compatibility 7.
+  * Bump Standards-Version to 3.8.3, no changes needed.
+  * debian/control: change the git repo location.
+  * debian/compat: Bump to 7 (replace dh_clean -k by dh_prep in install rule)
+  * debian/copyright: Adjust licences on BSD style sources.
+
+ -- Guillaume Delacour <gui@iroqwa.org>  Fri, 04 Sep 2009 23:48:19 +0000
+
+hping3 (3.a2.ds2-4) unstable; urgency=low
+
+  * New maintainer (Closes: #522830)
+  * debian/control:
+    + Bump Standards-Version to 3.8.1, no changes needed.
+  * debian/copyright:
+    + /usr/share/common-licenses -> /usr/share/common-licenses/GPL-2
+    + Change download url (previous http://wiki.hping.org/101 returns 404)
+  * debian/patches/80_ip_id_field.diff:
+    + Include patch to fix "-N" command line argument (Closes: #482844).
+
+ -- Guillaume Delacour <gui@iroqwa.org>  Wed, 13 May 2009 16:39:41 +0000
+
+hping3 (3.a2.ds2-3) unstable; urgency=low
+
+  * debian/control: Set maintainer to Debian QA group.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon, 06 Apr 2009 21:53:32 +0200
+
+hping3 (3.a2.ds2-2) unstable; urgency=low
+
+  * debian/control:
+    + Use "Tcl", not "TCL" in long description.
+    + Bump Standards-Version to 3.7.3, no changes needed.
+  * debian/patches/70_tcl.diff: New patch, change libtcl detection logic
+    to use the same version as the default tclsh instead of looking for
+    the newest installed library.
+  * debian/patches/series: Update.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 08 Mar 2008 19:44:14 +0100
+
+hping3 (3.a2.ds2-1) unstable; urgency=low
+
+  * debian/control: Add Vcs-Git and Vcs-Browser fields.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon, 08 Oct 2007 22:38:26 +0200
+
+hping3 (3.a2.ds1-5) unstable; urgency=low
+
+  * debian/control: Move upstream URL to the Homepage field.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Fri, 28 Sep 2007 21:25:40 +0200
+
+hping3 (3.a2.ds1-4) unstable; urgency=low
+
+  * Convert to quilt for patch management:
+    + debian/control: Build-Depend on quilt (>= 0.40) instead of dpatch.
+    + debian/rules: Include /usr/share/quilt/quilt.make.
+    + Convert all dpatch patches to regular patches.
+
+  * debian/control: Bump Standards-Version to 3.7.2, no changes needed.
+  * debian/rules: Don't ignore errors from make distclean.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Thu, 30 Aug 2007 22:12:04 +0200
+
+hping3 (3.a2.ds1-3) unstable; urgency=low
+
+  * debian/control:
+    + Add extra space before the Homepage pseudo-header (closes: #365483).
+    + Bump Standards-Version to 3.7.0, no changes needed.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Mon,  1 May 2006 19:52:39 +0200
+
+hping3 (3.a2.ds1-2) unstable; urgency=low
+
+  * debian/copyright: Update FSF's address.
+  * debian/compat: Switch to compatibility level 5.
+  * debian/control:
+    + Bump Standards-Version to 3.6.2.1, no changes needed.
+    + Build-Depend on debhelper (>= 5.0.0).
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sun, 18 Dec 2005 15:14:11 +0100
+
+hping3 (3.a2.ds1-1) unstable; urgency=low
+
+  * New maintainer.
+  * Repackaged as 3.a2.ds1 to remove non-free RFC texts.
+  * debian/control:
+    + Build-Depend on libpcap0.8-dev, dpatch (>= 2.0.9).
+    + Change priority to extra.
+    + Slightly reword long description.
+    + Update maintainer contact info.
+  * debian/copyright: Update maintainer contact info.
+  * debian/rules:
+    + Fix dpatch integration.
+    + Ship hping3 TCL scripts as examples (and forcibly leave them
+      uncompressed).
+    + Various cleanups.
+  * debian/patches/10_install.dpatch: New patch based on previous
+    "Makefilein.dpatch".
+  * debian/patches/20_libpcap0.8.dpatch: New patch for libpcap0.8
+    compilation.
+  * debian/patches/30_bytesex.dpatch: New patch stolen from my hping2
+    package to make bytesex.h use endian.h instead of hardcoding byte
+    orders; many thanks to Peter De Schrijver who provided a similar patch
+    (closes: #283038).
+  * debian/patches/40_spelling.dpatch: New patch stolen from my hping2
+    package to fix various spelling errors in hping.
+  * debian/patches/50_personality.dpatch: New patch, change all
+    occurrences of "hping2" to "hping3" in help messages and in the man
+    page.  Also say "hping3" instead of "hping" since the latter is really
+    hping2 in Debian.
+  * debian/patches/60_version.dpatch: New patch, this is really version
+    alpha-2 so fix release.h accordingly.
+  * debian/patches/00list: New file.
+
+ -- Romain Francoise <rfrancoise@debian.org>  Sat, 12 Mar 2005 14:15:32 +0100
+
+hping3 (3.a2-1) unstable; urgency=low
+
+  * Initial Release. (Closes: #267153)
+
+ -- Vincent Tantardini <vince@kerneled.org>  Sun, 10 Oct 2004 20:24:03 +0200
+
