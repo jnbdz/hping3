@@ -1,3 +1,9 @@
+hping3 (3.a2.ds2-6kali1) kali; urgency=low
+
+  * Added desktop and install files
+
+ -- dookie <dookie@kali.org>  Sat, 17 Nov 2012 14:35:52 -0700
+
 hping3 (3.a2.ds2-6) unstable; urgency=low
 
   * debian/patches/140_data_size_udp.diff: Fix incorrect data size 
