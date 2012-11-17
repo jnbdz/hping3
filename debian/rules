@@ -47,7 +47,7 @@ install: build
 	dh_testroot
 	dh_prep
 	dh_installdirs
-
+	install debian/kali-hping3.desktop debian/hping3/usr/share/applications/
 	$(MAKE) install DESTDIR=$(CURDIR)/debian/hping3/
 	mkdir -p $(CURDIR)/debian/hping3/usr/share/man/fr/man8
 	gzip -9 -c $(CURDIR)/docs/french/hping2-fr.8 > $(CURDIR)/debian/hping3/usr/share/man/fr/man8/hping3.8.gz
