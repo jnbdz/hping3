@@ -1,3 +1,9 @@
+hping3 (3.a2.ds2-6kali2) kali; urgency=low
+
+  * Removed desktop files
+
+ -- Mati Aharoni <muts@kali.org>  Sat, 15 Dec 2012 15:16:21 -0500
+
 hping3 (3.a2.ds2-6kali1) kali; urgency=low
 
   * Added desktop and install files
